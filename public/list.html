@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- css External -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        background-color: gray;
+    }
+
+    .divi {
+        background-image: none;
+    }
+    .btn1{
+      font-size: 10px;
+    }
+    .list{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.list > li{
+    list-style-type: none;
+    box-shadow: 2px 4px 6px 2px rgba(68, 126, 111, 0.2);
+    width: 100px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'Fredoka One', cursive; 
+    background-color: rgb(251, 247, 247);
+    border-radius: 20px ;
+    color: black;
+
+}
+</style>
+
+<body>
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <img src="images/logo.svg" width="100px" alt="">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="profile.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item">
+                            <span style="cursor:pointer " class="nav-link"> About Us</span>
+                        </li>
+                        <div id="myNav" class="overlay">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                            <div class="overlay-content">
+                                <a href="#">About</a>
+                                <a href="signup.html">Login/Signup</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    </ul>
+
+                </div>
+            </nav>
+            <div class="divi">
+
+                <div class="text-div">
+                    <span class="head1">Dinner with your </span>
+                    <p class="ml12">Friends and family</p>
+                    <h1 id="head2" class="head2"> </h1>
+                    <img src="images/newsletter-bg.jpg" class="circle rounded" width="900px" alt="">
+                </div>
+                <h1 class="text-center light py-5" style=" font-family: 'Fredoka One', cursive;
+                color: #e75b1e;">
+                    Add Dishes
+                </h1>
+                <center>
+                    <div class="form-group">
+                        <p style="color: wheat;">Enter Dish Name</p>
+                        <input type="text" placeholder="Enter dish name "
+                            class="form-control  col-6 justify-content-center  input1" id="todo"> <br>
+                            <p  style="color: wheat;" >Enter Price</p>
+                        <input type="number"   placeholder="Enter Price"  class="form-control  col-6 justify-content-center  input1" required id="price">
+                    </div>
+                    <div class="todo-btn ">
+                        <button onclick="addTodo()" type="submit" id="add" class="btn btn-primary" required >Add Dish</button>
+                        <button onclick="delAll()" type="submit" class="btn btn-info">Delete All</button>
+                    </div>
+                    <div class="row ">
+                        <div class="col-6 justify-content-center">
+                            <ul id="list" class="list">
+    
+    
+                            </ul>
+                        </div>
+    
+                    </div>
+                </center>
+            </div>
+            
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAktS2Z1YW19zC6DzgaulzvJBC-lIKfdqo",
+      authDomain: "login-signup-form-d1674.firebaseapp.com",
+      databaseURL: "https://login-signup-form-d1674-default-rtdb.firebaseio.com",
+      projectId: "login-signup-form-d1674",
+      storageBucket: "login-signup-form-d1674.appspot.com",
+      messagingSenderId: "487043740599",
+      appId: "1:487043740599:web:770a92712a30b59c81ae32"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+            <script src="app1.js"></script>
+</body>
+
+</html>
